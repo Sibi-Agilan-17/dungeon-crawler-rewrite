@@ -1,6 +1,11 @@
+#  import random
 import sys
-
 import pygame
+
+# constants
+
+FPS = 90
+DEBUG = False  # not used # todo: look into this
 
 pygame.init()
 pygame.display.set_caption('Dungeon Crawler')
@@ -9,8 +14,6 @@ pygame.mouse.set_visible(False)
 WIN = pygame.display.set_mode((1050, 750))
 display = pygame.Surface((525, 375))
 clock = pygame.Clock()
-
-FPS = 60
 
 
 while True:
@@ -40,6 +43,6 @@ while True:
 				...
 
 			# todo: process events
-		
+
 	WIN.blit(pygame.transform.scale(display, (1050, 750)), (0, 0))
 	pygame.display.flip()
