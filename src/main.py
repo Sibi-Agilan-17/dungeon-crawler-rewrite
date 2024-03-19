@@ -2,10 +2,15 @@
 import sys
 import pygame
 
+import character
+import utils
+
 # constants
 
 FPS = 90
 DEBUG = False  # not used # todo: look into this
+
+# init pygame
 
 pygame.init()
 pygame.display.set_caption('Dungeon Crawler')
@@ -15,7 +20,18 @@ WIN = pygame.display.set_mode((1050, 750))
 display = pygame.Surface((525, 375))
 clock = pygame.Clock()
 
+# game init
 
+player = character.Player()
+gallery = utils.Gallery()
+
+player.run_animation = gallery.player_run_animation
+player.idle_animation = gallery.player_idle_animation
+player.jump_animation = gallery.player_jump_animation
+
+del gallery
+
+# game loop
 while True:
 	display.fill((28, 31, 36))
 

@@ -25,7 +25,8 @@ class Player:
 		self.run_count: int = 0
 		self.facing_right = True
 		self.idle_count: int = 0
-		self.idle_animation = self.run_animation = []  # will be written later
+		self.jump_count: int = 0
+		self.idle_animation = self.run_animation = self.jump_animation = []  # will be written later
 		self.hitbox: pygame.Rect = pygame.Rect(*spawn_location)
 
 		for k, v in kwargs.items():
@@ -87,6 +88,9 @@ class Player:
 
 		if self.run_count + 2 >= len(self.run_animation):
 			self.run_count = 0
+
+		if self.jump_count + 2 >= len(self.jump_animation):
+			self.jump_count = 0
 
 		self.hp += self.regen
 

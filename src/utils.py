@@ -23,7 +23,7 @@ class Gallery:
 
 		for i in range(1, 1):
 			jump_img = _load_image(os.path.join('assets', 'player', 'jump_images', 'jump_' + str(i) + '.png'))
-			self.player_jump_imgages.append(jump_img)
+			self.player_jump_images.append(jump_img)
 
 		self.player_run_animation = self._animate(self.player_run_images, 16)
 		self.player_idle_animation = self._animate(self.player_idle_images, 96)
@@ -32,7 +32,7 @@ class Gallery:
 	@staticmethod
 	def _animate(frames, frame_duration):
 		animation = []
-		
+
 		for u in range(len(frames)):
 			for v in range(frame_duration):
 				animation.append(frames[u])
