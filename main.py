@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 pygame.init()
@@ -14,5 +16,30 @@ FPS = 60
 while True:
 	display.fill((28, 31, 36))
 
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			# Exit silently
+			sys.exit(-1)
+
+		elif event.type == pygame.KEYDOWN:
+			# Process essential key presses, that does not influence the game
+			# and cannot be over ridden by anything else
+
+			if event.key == pygame.K_q:
+				# Quit game
+				pygame.quit()
+
+			elif event.key == pygame.K_r:
+				# reset the game
+				# todo: map reset
+				...
+
+			elif event.key == pygame.K_z:
+				# toggle debug
+				# todo: map debug
+				...
+
+			# todo: process events
+		
 	WIN.blit(pygame.transform.scale(display, (1050, 750)), (0, 0))
 	pygame.display.flip()
